@@ -21,13 +21,6 @@
 
 @implementation ILSimSKProductsRequest
 
-+ (id) allocWithZone:(NSZone*) z;
-{
-	return [[self class] allocWithZone:z];
-}
-
-// Default behavior: none found.
-
 - (id) initWithProductIdentifiers:(NSSet*) productIdentifiers;
 {
 	if (self = [super init]) {
@@ -73,7 +66,7 @@
 + (ILSimSKProduct*) simulatedProductForIdentifier:(NSString*) ident;
 {
 	NSString* productsFile = [[[NSProcessInfo processInfo] environment] objectForKey:@"ILSimSKProductsPlist"];
-	NSDictionary* d = [NSDictionary dictionaryWithContentsOfFile:productsFile];
+	NSDictionary* d = productsFile? [NSDictionary dictionaryWithContentsOfFile:productsFile] : nil;
 	
 	NSDictionary* productData = [d objectForKey:ident];
 	if (!productData)
@@ -87,6 +80,9 @@
 	NSInteger i = [[productData objectForKey:@"Tier"] unsignedIntegerValue];
 	p.price = ILSimSKPriceAtTierForCurrentStorefront(i);
 	p.priceLocale = ILSimSKLocaleForCurrentStorefront();
+	
+	NSInteger j = [[productData objectForKey:@"ProductType"] integerValue];
+	p.simulatedProductType = j;
 	return p;
 }
 

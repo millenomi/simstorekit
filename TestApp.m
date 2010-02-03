@@ -12,6 +12,8 @@
 
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 {
+	setenv("ILSimSKProductsPlist", [[[NSBundle mainBundle] pathForResource:@"Products" ofType:@"plist"] fileSystemRepresentation], 1);
+	
 	[[SKPaymentQueue defaultQueue] addTransactionObserver:self];
 	[window makeKeyAndVisible];
 	return YES;

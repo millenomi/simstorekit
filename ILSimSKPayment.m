@@ -27,8 +27,10 @@
 
 - (id) initWithProductIdentifier:(NSString*) pid;
 {
-	if (self = [super init])
+	if (self = [super init]) {
 		productIdentifier = [pid copy];
+		quantity = 1;
+	}
 	
 	return self;
 }

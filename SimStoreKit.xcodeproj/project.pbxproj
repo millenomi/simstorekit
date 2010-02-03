@@ -12,6 +12,7 @@
 		15491D531119C79B000CE8BB /* libSimStoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libSimStoreKit.a */; };
 		15491D561119C7C7000CE8BB /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15491D551119C7C7000CE8BB /* MainWindow.xib */; };
 		15491D5E1119C7FB000CE8BB /* TestApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 15491D5D1119C7FB000CE8BB /* TestApp.m */; };
+		15491DEC1119CF60000CE8BB /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15491DEB1119CF60000CE8BB /* Products.plist */; };
 		155551DA111842630082EF0A /* ILSimSKPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 155551D8111842630082EF0A /* ILSimSKPayment.h */; };
 		155551DB111842630082EF0A /* ILSimSKPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 155551D9111842630082EF0A /* ILSimSKPayment.m */; };
 		155551EC111844230082EF0A /* ILSimSKProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = 155551EA111844230082EF0A /* ILSimSKProduct.h */; };
@@ -50,6 +51,7 @@
 		15491D551119C7C7000CE8BB /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		15491D5C1119C7FB000CE8BB /* TestApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestApp.h; sourceTree = "<group>"; };
 		15491D5D1119C7FB000CE8BB /* TestApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestApp.m; sourceTree = "<group>"; };
+		15491DEB1119CF60000CE8BB /* Products.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		155551D8111842630082EF0A /* ILSimSKPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSimSKPayment.h; sourceTree = "<group>"; };
 		155551D9111842630082EF0A /* ILSimSKPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSimSKPayment.m; sourceTree = "<group>"; };
 		155551EA111844230082EF0A /* ILSimSKProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSimSKProduct.h; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			children = (
 				15491D551119C7C7000CE8BB /* MainWindow.xib */,
 				15491D361119C715000CE8BB /* TestApp-Info.plist */,
+				15491DEB1119CF60000CE8BB /* Products.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15491D561119C7C7000CE8BB /* MainWindow.xib in Resources */,
+				15491DEC1119CF60000CE8BB /* Products.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

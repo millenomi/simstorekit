@@ -74,6 +74,8 @@ enum {
 	t.payment = p;
 	t.transactionDate = [NSDate date];
 	
+	[transactions addObject:t];
+	
 	if ([observers count] > 0)
 		[self performSelector:@selector(processNextTransaction) withObject:nil afterDelay:2.0];
 }
@@ -153,7 +155,7 @@ enum {
 					   p.productIdentifier, @"ProductID",
 					   [NSNumber numberWithInteger:self.currentTransaction.payment.quantity], @"Quantity",
 					   self.currentTransaction.transactionIdentifier, @"TransactionID",
-					   [NSNumber numberWithInteger:p.simulatedProductType], @"SimulatedProductType",
+					   [NSNumber numberWithInteger:p.simulatedProductType], @"ProductType",
 					   self.currentTransaction.transactionDate, @"Date",
 					   nil];
 	
@@ -218,7 +220,7 @@ enum {
 		if (![d isKindOfClass:[NSDictionary class]])
 			continue;
 		
-		id kind = [d objectForKey:@"SimulatedProductType"];
+		id kind = [d objectForKey:@"ProductType"];
 		if (!kind || ![kind isKindOfClass:[NSNumber class]] || [kind integerValue] != kILSimSimulatedProductTypeNonConsumable)
 			continue;
 		

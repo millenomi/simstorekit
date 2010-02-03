@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>TestItem</key>
+	<dict>
+		<key>Title</key>
+		<string>Test Item</string>
+		<key>Description</key>
+		<string>A small test item used to test the simulated StoreKit.</string>
+		<key>Tier</key>
+		<integer>2</integer>
+		<key>ProductType</key>
+		<integer>0</integer>
+		<key>COMMENT: ProductType meanings</key>
+		<array>
+			<string>Non-Consumable</string>
+			<string>Consumable</string>
+			<string>Subscription</string>
+		</array>
+	</dict>
+</dict>
+</plist>
