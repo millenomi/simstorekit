@@ -180,8 +180,20 @@ enum {
 	if (!a)
 		a = [NSMutableArray array];
 	
-	[a addObject:r];
-	[[NSUserDefaults standardUserDefaults] setObject:a forKey:@"ILSimSKTransactions"];
+	BOOL shouldAdd = YES;
+	if (p.simulatedProductType == kILSimSimulatedProductTypeNonConsumable) {
+		for (NSDictionary* receipt in a) {
+			if ([[receipt objectForKey:@"ProductID"] isEqual:p.productIdentifier]) {
+				shouldAdd = NO;
+				break;
+			}
+		}
+	}
+	
+	if (shouldAdd) {
+		[a addObject:r];
+		[[NSUserDefaults standardUserDefaults] setObject:a forKey:@"ILSimSKTransactions"];
+	}
 	
 	[self performSelector:@selector(signalFinished) withObject:nil afterDelay:2.0];
 }
