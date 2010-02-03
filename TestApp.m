@@ -28,6 +28,11 @@
 	[pr start];
 }
 
+- (IBAction) restore;
+{
+	[[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+}
+
 - (void) productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response;
 {
 	if ([response.products count] == 0)

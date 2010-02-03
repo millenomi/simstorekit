@@ -15,5 +15,6 @@
 }
 
 - (IBAction) buy;
+- (IBAction) restore;
 
 @end
