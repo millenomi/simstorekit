@@ -28,7 +28,7 @@
 	[pr start];
 }
 
-- (void) productsRequest:(ILSimSKProductsRequest *)request didReceiveResponse:(ILSimSKProductsResponse *)response;
+- (void) productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response;
 {
 	if ([response.products count] == 0)
 		return;
@@ -38,9 +38,16 @@
 	[[SKPaymentQueue defaultQueue] addPayment:pay];
 }
 
-- (void) paymentQueue:(ILSimSKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions;
+- (void) paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions;
 {
 	NSLog(@"%@", transactions);
+	
+	for (SKPaymentTransaction* t in transactions) {
+		if (t.transactionState == SKPaymentTransactionStatePurchased || t.transactionState == SKPaymentTransactionStateFailed) {
+			NSLog(@"%@ -> state %d", t, t.transactionState);
+			[queue finishTransaction:t];
+		}
+	}
 }
 
 @end

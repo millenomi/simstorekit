@@ -140,6 +140,7 @@ enum {
 			break;
 		case 1:
 			[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimSimulatedFailure userInfo:nil]];
+			break;
 		case 2:
 		default:
 			[self fail:[NSError errorWithDomain:NSCocoaErrorDomain code:NSUserCancelledError userInfo:nil]];
@@ -176,12 +177,17 @@ enum {
 	self.currentTransaction.transactionState = kILSimSKPaymentTransactionStatePurchased;
 
 	NSMutableArray* a = [[[[NSUserDefaults standardUserDefaults] arrayForKey:@"ILSimSKTransactions"] mutableCopy] autorelease];
-	if (!d)
+	if (!a)
 		a = [NSMutableArray array];
 	
 	[a addObject:r];
 	[[NSUserDefaults standardUserDefaults] setObject:a forKey:@"ILSimSKTransactions"];
 	
+	[self performSelector:@selector(signalFinished) withObject:nil afterDelay:2.0];
+}
+
+- (void) signalFinished;
+{
 	for (id <ILSimSKPaymentTransactionObserver> o in observers)
 		[o paymentQueue:self updatedTransactions:[NSArray arrayWithObject:self.currentTransaction]];
 }
@@ -190,14 +196,18 @@ enum {
 {
 	self.currentTransaction.error = e;
 	self.currentTransaction.transactionState = kILSimSKPaymentTransactionStateFailed;
+	NSArray* t = [NSArray arrayWithObject:self.currentTransaction];
+	
 	for (id <ILSimSKPaymentTransactionObserver> o in observers)
-		[o paymentQueue:self updatedTransactions:[NSArray arrayWithObject:self.currentTransaction]];
+		[o paymentQueue:self updatedTransactions:t];
 }
 
 - (void) finishTransaction:(ILSimSKPaymentTransaction*) t;
 {
 	if ([transactions count] > 0 && self.currentTransaction == [transactions objectAtIndex:0])
 		[transactions removeObjectAtIndex:0];
+	else
+		return;
 	
 	for (id <ILSimSKPaymentTransactionObserver> o in observers) {
 		if ([o respondsToSelector:@selector(paymentQueue:removedTransactions:)])
