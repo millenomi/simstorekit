@@ -11,6 +11,7 @@
 #import "ILSimSKPaymentQueue.h"
 #import "ILSimSKPaymentTransaction_Private.h"
 #import "ILSimSKProductsRequest.h"
+#import "ILSimSKProduct_Private.h"
 
 #define kILSimSKErrorDomain @"net.infinite-labs.SimulatedStoreKit"
 enum {
@@ -146,12 +147,16 @@ enum {
 
 - (void) succeed;
 {
+	ILSimSKProduct* p = [ILSimSKProductsRequest simulatedProductForIdentifier:self.currentTransaction.payment.productIdentifier];
+	
 	NSDictionary* r = [NSDictionary dictionaryWithObjectsAndKeys:
-					   self.currentTransaction.payment.productIdentifier, @"ProductID",
+					   p.productIdentifier, @"ProductID",
 					   [NSNumber numberWithInteger:self.currentTransaction.payment.quantity], @"Quantity",
 					   self.currentTransaction.transactionIdentifier, @"TransactionID",
+					   [NSNumber numberWithInteger:p.simulatedProductType], @"SimulatedProductType",
+					   self.currentTransaction.transactionDate, @"Date",
 					   nil];
-		
+	
 	NSString* err = nil;
 	NSData* d = [NSPropertyListSerialization dataFromPropertyList:r format:NSPropertyListBinaryFormat_v1_0 errorDescription:&err];
 	if (d)
@@ -162,13 +167,13 @@ enum {
 			[err release];
 		}
 		
-		[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimNoSuchProduct userInfo:nil]];
+		[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimCannotMakeReceipt userInfo:nil]];
 		return;
 	}
 	
 	self.currentTransaction.transactionState = kILSimSKPaymentTransactionStatePurchased;
 
-	NSMutableArray* a = [[[[NSUserDefaults standardUserDefaults] objectForKey:@"ILSimSKTransactions"] mutableCopy] autorelease];
+	NSMutableArray* a = [[[[NSUserDefaults standardUserDefaults] arrayForKey:@"ILSimSKTransactions"] mutableCopy] autorelease];
 	if (!d)
 		a = [NSMutableArray array];
 	
@@ -192,8 +197,10 @@ enum {
 	if ([transactions count] > 0 && self.currentTransaction == [transactions objectAtIndex:0])
 		[transactions removeObjectAtIndex:0];
 	
-	for (id <ILSimSKPaymentTransactionObserver> o in observers)
-		[o paymentQueue:self removedTransactions:[NSArray arrayWithObject:self.currentTransaction]];
+	for (id <ILSimSKPaymentTransactionObserver> o in observers) {
+		if ([o respondsToSelector:@selector(paymentQueue:removedTransactions:)])
+			[o paymentQueue:self removedTransactions:[NSArray arrayWithObject:self.currentTransaction]];
+	}
 	
 	self.currentTransaction = nil;
 	
@@ -203,7 +210,45 @@ enum {
 
 - (void) restoreCompletedTransactions;
 {
+	srandomdev();
 	
+	NSMutableArray* a = [NSMutableArray array];
+	
+	for (id d in [[NSUserDefaults standardUserDefaults] arrayForKey:@"ILSimSKTransactions"]) {
+		if (![d isKindOfClass:[NSDictionary class]])
+			continue;
+		
+		id kind = [d objectForKey:@"SimulatedProductType"];
+		if (!kind || ![kind isKindOfClass:[NSNumber class]] || [kind integerValue] != kILSimSimulatedProductTypeNonConsumable)
+			continue;
+		
+		ILSimSKPaymentTransaction* t = [[ILSimSKPaymentTransaction new] autorelease];
+		t.transactionDate = [NSDate date];
+		t.transactionState = kILSimSKPaymentTransactionStateRestored;
+		t.transactionIdentifier = [NSString stringWithFormat:@"%lx", random()];
+		
+		ILSimSKPaymentTransaction* original = [[ILSimSKPaymentTransaction new] autorelease];
+		original.transactionDate = [d objectForKey:@"TransactionDate"];
+		original.transactionIdentifier = [d objectForKey:@"TransactionID"];
+		
+		ILSimSKMutablePayment* p = [ILSimSKMutablePayment paymentWithProductIdentifier:[d objectForKey:@"ProductID"]];
+		p.quantity = [[d objectForKey:@"Quantity"] integerValue];
+		original.payment = p;
+		
+		t.originalTransaction = original;
+		
+		[a addObject:t];
+	}
+	
+	if ([a count] > 0) {
+		for (id <ILSimSKPaymentTransactionObserver> o in observers)
+			[o paymentQueue:self updatedTransactions:a];
+	}
+	
+	for (id <ILSimSKPaymentTransactionObserver> o in observers) {
+		if ([o respondsToSelector:@selector(paymentQueueRestoreCompletedTransactionsFinished:)])
+			[o paymentQueueRestoreCompletedTransactionsFinished:self];
+	}
 }
 
 - (void) addTransactionObserver:(id <ILSimSKPaymentTransactionObserver>) o;

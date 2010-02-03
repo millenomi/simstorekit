@@ -38,9 +38,10 @@
 
 
 @protocol ILSimSKPaymentTransactionObserver <NSObject>
-
+@required
 - (void) paymentQueue:(ILSimSKPaymentQueue*) queue updatedTransactions:(NSArray*) transactions;
 
+@optional
 - (void) paymentQueue:(ILSimSKPaymentQueue*) queue removedTransactions:(NSArray*) transactions;
 
 - (void) paymentQueue:(ILSimSKPaymentQueue*) queue restoreCompletedTransactionsFailedWithError:(NSError*) e;

@@ -61,7 +61,7 @@
 	ILSimSKProductsResponse* r = [[[ILSimSKProductsResponse alloc] initWithProducts:prods invalidProductIdentifiers:badIDs] autorelease];
 	
 	[self.delegate productsRequest:self didReceiveResponse:r];
-	if (!cancelled)
+	if (!cancelled && [self.delegate respondsToSelector:@selector(requestDidFinish:)])
 		[self.delegate requestDidFinish:self];
 }
 

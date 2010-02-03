@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NSInteger ILSimSKSimulatedProductType;
 
 @interface ILSimSKProduct : NSObject {
 	NSString* localizedDescription, * localizedTitle;
 	NSLocale* priceLocale;
 	NSDecimalNumber* price;
 	NSString* productIdentifier;
+	ILSimSKSimulatedProductType simulatedProductType;
 }
 
 @property(nonatomic, readonly, copy) NSString* localizedDescription;

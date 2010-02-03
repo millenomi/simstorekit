@@ -11,7 +11,7 @@
 
 @implementation ILSimSKProduct
 
-@synthesize localizedDescription, localizedTitle, price, priceLocale, productIdentifier;
+@synthesize localizedDescription, localizedTitle, price, priceLocale, productIdentifier, simulatedProductType;
 
 - (void) dealloc
 {

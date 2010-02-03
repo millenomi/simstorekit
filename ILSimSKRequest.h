@@ -28,6 +28,7 @@
 
 @protocol ILSimSKRequestDelegate <NSObject>
 
+@optional
 - (void)request:(ILSimSKRequest *)request didFailWithError:(NSError *)error;
 - (void)requestDidFinish:(ILSimSKRequest *)request;
 
