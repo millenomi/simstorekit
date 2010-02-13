@@ -9,6 +9,7 @@
 #import "ILSimSKProductsRequest.h"
 #import "ILSimSKProduct_Private.h"
 #import "ILSimSKTiers.h"
+#import "ILSimSKPaymentQueue.h"
 
 @interface ILSimSKProductsRequest ()
 
@@ -53,6 +54,11 @@
 	
 	ILSimSKProductsResponse* r = [[[ILSimSKProductsResponse alloc] initWithProducts:prods invalidProductIdentifiers:badIDs] autorelease];
 	
+	[self performSelector:@selector(produceResponse:) withObject:r afterDelay:2.0];
+}
+
+- (void) produceResponse:(ILSimSKProductsResponse*) r;
+{	
 	[self.delegate productsRequest:self didReceiveResponse:r];
 	if (!cancelled && [self.delegate respondsToSelector:@selector(requestDidFinish:)])
 		[self.delegate requestDidFinish:self];
@@ -65,7 +71,7 @@
 
 + (ILSimSKProduct*) simulatedProductForIdentifier:(NSString*) ident;
 {
-	NSString* productsFile = [[[NSProcessInfo processInfo] environment] objectForKey:@"ILSimSKProductsPlist"];
+	NSString* productsFile = [[[NSProcessInfo processInfo] environment] objectForKey:kILSimSKProductsPlistEnvironmentVariable];
 	NSDictionary* d = productsFile? [NSDictionary dictionaryWithContentsOfFile:productsFile] : nil;
 	
 	NSDictionary* productData = [d objectForKey:ident];

@@ -7,6 +7,7 @@
 //
 
 #import "ILSimSKTiers.h"
+#import "ILSimSKPaymentQueue.h"
 
 NSString* const kILSimStorefront_USD = @"USD";
 NSString* const kILSimStorefront_EUR = @"EUR";
@@ -15,9 +16,18 @@ NSString* const kILSimStorefront_GBP = @"GBP";
 
 static NSString* storefront = nil;
 
+static BOOL ILSimSKIsKnownStorefront(NSString* sf) {
+	return [sf isEqual:kILSimStorefront_USD] || [sf isEqual:kILSimStorefront_CAD] ||
+		[ILSimSKAllTierPricesByStorefront() objectForKey:sf] != nil;
+}
+
 NSString* ILSimSKCurrentStorefront() {
-	if (!storefront)
-		ILSimSKSetCurrentStorefront(kILSimStorefront_USD);
+	if (!storefront) {
+		NSString* e = [[[NSProcessInfo processInfo] environment] objectForKey:kILSimSKStorefrontCodeEnvironmentVariable];
+		if (!e || !ILSimSKIsKnownStorefront(e))
+			e = kILSimStorefront_USD;
+		ILSimSKSetCurrentStorefront(e);
+	}
 	
 	return storefront;
 }

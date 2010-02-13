@@ -35,7 +35,8 @@ enum {
 
 + (BOOL) canMakePayments;
 {
-	return [[[[NSProcessInfo processInfo] environment] objectForKey:@"ILSimSKCanMakePayments"] boolValue];
+	id o = [[[NSProcessInfo processInfo] environment] objectForKey:kILSimSKCanMakePaymentsEnvironmentVariable];
+	return !o || [o boolValue];
 }
 
 - (id) init
@@ -69,6 +70,8 @@ enum {
 
 - (void) addPayment:(ILSimSKPayment*) p;
 {
+	NSAssert([ILSimSKPaymentQueue canMakePayments], @"Payments must be available to add payments onto the queue.");
+	
 	ILSimSKPaymentTransaction* t = [[ILSimSKPaymentTransaction new] autorelease];
 	t.transactionState = kILSimSKPaymentTransactionStatePurchasing;
 	t.payment = p;
@@ -118,7 +121,7 @@ enum {
 		UIAlertView* a = [[UIAlertView new] autorelease];
 		a.delegate = self;
 		
-		NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
+		NSNumberFormatter* numberFormatter = [[NSNumberFormatter new] autorelease];
 		[numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
 		[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 		[numberFormatter setLocale:p.priceLocale];
