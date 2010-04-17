@@ -6,6 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "ILSimStoreKit.h"
+#if kILSimAllowSimulatedStoreKit
+
+
 #import <UIKit/UIKit.h>
 
 #import "ILSimSKPaymentQueue.h"
@@ -13,12 +17,7 @@
 #import "ILSimSKProductsRequest.h"
 #import "ILSimSKProduct_Private.h"
 
-#define kILSimSKErrorDomain @"net.infinite-labs.SimulatedStoreKit"
-enum {
-	kILSimSimulatedFailure,
-	kILSimNoSuchProduct,
-	kILSimCannotMakeReceipt,
-};
+NSString* const kILSimSKErrorDomain = @"net.infinite-labs.SimulatedStoreKit";
 
 @interface ILSimSKPaymentQueue () <UIAlertViewDelegate>
 
@@ -106,7 +105,7 @@ enum {
 	if ([action isEqual:@"AlwaysSucceed"])
 		[self succeed];
 	else if ([action isEqual:@"AlwaysFail"])
-		[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimSimulatedFailure userInfo:nil]];
+		[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimSKErrorPaymentNotAllowed userInfo:nil]];
 	else
 		[self ask];
 }
@@ -116,7 +115,7 @@ enum {
 	ILSimSKProduct* p = [ILSimSKProductsRequest simulatedProductForIdentifier:self.currentTransaction.payment.productIdentifier];
 	
 	if (!p)
-		[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimNoSuchProduct userInfo:nil]];
+		[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimSKErrorPaymentInvalid userInfo:nil]];
 	else {
 		UIAlertView* a = [[UIAlertView new] autorelease];
 		a.delegate = self;
@@ -142,11 +141,11 @@ enum {
 			[self succeed];
 			break;
 		case 1:
-			[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimSimulatedFailure userInfo:nil]];
+			[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimSKErrorUnknown userInfo:nil]];
 			break;
 		case 2:
 		default:
-			[self fail:[NSError errorWithDomain:NSCocoaErrorDomain code:NSUserCancelledError userInfo:nil]];
+			[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimSKErrorPaymentCancelled userInfo:nil]];
 			break;
 	}
 }
@@ -173,7 +172,7 @@ enum {
 			[err release];
 		}
 		
-		[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimCannotMakeReceipt userInfo:nil]];
+		[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimSKErrorUnknown userInfo:nil]];
 		return;
 	}
 	
@@ -296,3 +295,5 @@ enum {
 }
 
 @end
+
+#endif // #if kILSimAllowSimulatedStoreKit

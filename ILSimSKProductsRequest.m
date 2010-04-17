@@ -6,6 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "ILSimStoreKit.h"
+#if kILSimAllowSimulatedStoreKit
+
+
 #import "ILSimSKProductsRequest.h"
 #import "ILSimSKProduct_Private.h"
 #import "ILSimSKTiers.h"
@@ -116,3 +120,5 @@
 }
 
 @end
+
+#endif // #if kILSimAllowSimulatedStoreKit

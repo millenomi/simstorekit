@@ -6,6 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "ILSimStoreKit.h"
+#if kILSimAllowSimulatedStoreKit
+
+
 #import "ILSimSKPaymentTransaction.h"
 #import "ILSimSKPaymentTransaction_Private.h"
 
@@ -32,3 +36,5 @@
 }
 
 @end
+
+#endif // #if kILSimAllowSimulatedStoreKit

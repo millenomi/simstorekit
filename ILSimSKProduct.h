@@ -6,6 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "ILSimStoreKit.h"
+#if kILSimAllowSimulatedStoreKit
+
+
 #import <Foundation/Foundation.h>
 
 typedef NSInteger ILSimSKSimulatedProductType;
@@ -28,3 +32,4 @@ typedef NSInteger ILSimSKSimulatedProductType;
 
 @end
 
+#endif // #if kILSimAllowSimulatedStoreKit

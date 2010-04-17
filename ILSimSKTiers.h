@@ -6,6 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "ILSimStoreKit.h"
+#if kILSimAllowSimulatedStoreKit
+
+
 #import <Foundation/Foundation.h>
 
 // The string values of these constants are the currency codes just after the _ (for example, @"USD" for kILSimStorefront_USD).
@@ -29,3 +33,4 @@ extern NSDecimalNumber* ILSimSKPriceAtTierForCurrentStorefront(NSUInteger index)
 
 extern NSLocale* ILSimSKLocaleForCurrentStorefront();
 
+#endif // #if kILSimAllowSimulatedStoreKit

@@ -6,6 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "ILSimStoreKit.h"
+#if kILSimAllowSimulatedStoreKit
+
+
 #import <Foundation/Foundation.h>
 
 #import "ILSimSKPayment.h"
@@ -39,3 +43,4 @@ typedef NSInteger ILSimSKPaymentTransactionState;
 
 @end
 
+#endif // #if kILSimAllowSimulatedStoreKit

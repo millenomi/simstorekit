@@ -6,6 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "ILSimStoreKit.h"
+#if kILSimAllowSimulatedStoreKit
+
+
 #import <Foundation/Foundation.h>
 
 #import "ILSimSKRequest.h"
@@ -43,3 +47,5 @@
 - (void) productsRequest:(ILSimSKProductsRequest*) request didReceiveResponse:(ILSimSKProductsResponse*) response;
 
 @end
+
+#endif // #if kILSimAllowSimulatedStoreKit

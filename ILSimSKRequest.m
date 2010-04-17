@@ -6,6 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "ILSimStoreKit.h"
+#if kILSimAllowSimulatedStoreKit
+
+
 #import "ILSimSKRequest.h"
 
 
@@ -17,3 +21,6 @@
 @dynamic delegate;
 
 @end
+
+#endif // #if kILSimAllowSimulatedStoreKit
+

@@ -8,6 +8,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "ILSimStoreKit.h"
+#if kILSimAllowSimulatedStoreKit
+
+
 #import "ILSimSKTiers.h"
 #import "ILSimSKPaymentQueue.h"
 
@@ -982,3 +986,4 @@ else if ([s isEqual:@"NOK"])
 	return [[[NSLocale alloc] initWithLocaleIdentifier:l] autorelease];
 }
 
+#endif // #if kILSimAllowSimulatedStoreKit

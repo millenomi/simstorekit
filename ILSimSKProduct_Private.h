@@ -1,4 +1,8 @@
 
+#import "ILSimStoreKit.h"
+#if kILSimAllowSimulatedStoreKit
+
+
 #import "ILSimSKProduct.h"
 
 enum {
@@ -20,3 +24,5 @@ enum {
 @property(nonatomic, setter=private_setSimulatedProductType:) ILSimSKSimulatedProductType simulatedProductType;
 
 @end
+
+#endif // #if kILSimAllowSimulatedStoreKit

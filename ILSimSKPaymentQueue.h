@@ -6,6 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "ILSimStoreKit.h"
+#if kILSimAllowSimulatedStoreKit
+
+
 #import <Foundation/Foundation.h>
 #import "ILSimSKPayment.h"
 #import "ILSimSKPaymentTransaction.h"
@@ -32,6 +36,19 @@
 // Use a currency symbol for the storefront -- f. ex. "USD" is the USA storefront, "EUR" an Euro-using storefront etc.
 // Default is USD.
 #define kILSimSKStorefrontCodeEnvironmentVariable @"ILSimSKStorefrontCode"
+
+
+extern NSString* const kILSimSKErrorDomain;
+
+enum {
+	// doubles from SKErrorDomain
+	kILSimSKErrorUnknown,
+	kILSimSKErrorClientInvalid,
+	kILSimSKErrorPaymentCancelled,
+	kILSimSKErrorPaymentInvalid,
+	kILSimSKErrorPaymentNotAllowed,
+};
+
 
 @protocol ILSimSKPaymentTransactionObserver;
 
@@ -72,3 +89,5 @@
 - (void) paymentQueueRestoreCompletedTransactionsFinished:(ILSimSKPaymentQueue*) queue;
 
 @end
+
+#endif // #if kILSimAllowSimulatedStoreKit
