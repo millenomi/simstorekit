@@ -9,8 +9,7 @@
 #import "ILSimStoreKit.h"
 #if kILSimAllowSimulatedStoreKit
 
-
-#import <UIKit/UIKit.h>
+#import "ILSimTransactionSimulator.h"
 
 #import "ILSimSKPaymentQueue.h"
 #import "ILSimSKPaymentTransaction_Private.h"
@@ -19,7 +18,7 @@
 
 NSString* const kILSimSKErrorDomain = @"net.infinite-labs.SimulatedStoreKit";
 
-@interface ILSimSKPaymentQueue () <UIAlertViewDelegate>
+@interface ILSimSKPaymentQueue ()
 
 @property(nonatomic, retain) ILSimSKPaymentTransaction* currentTransaction;
 
@@ -31,6 +30,8 @@ NSString* const kILSimSKErrorDomain = @"net.infinite-labs.SimulatedStoreKit";
 
 
 @implementation ILSimSKPaymentQueue
+
+@synthesize transactionSimulator;
 
 + (BOOL) canMakePayments;
 {
@@ -44,6 +45,8 @@ NSString* const kILSimSKErrorDomain = @"net.infinite-labs.SimulatedStoreKit";
 	if (self != nil) {
 		observers = [NSMutableSet new];
 		transactions = [NSMutableArray new];
+		
+		transactionSimulator = ILSimDefaultTransactionSimulator();
 	}
 	return self;
 }
@@ -117,36 +120,12 @@ NSString* const kILSimSKErrorDomain = @"net.infinite-labs.SimulatedStoreKit";
 	if (!p)
 		[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimSKErrorPaymentInvalid userInfo:nil]];
 	else {
-		UIAlertView* a = [[UIAlertView new] autorelease];
-		a.delegate = self;
-		
-		NSNumberFormatter* numberFormatter = [[NSNumberFormatter new] autorelease];
-		[numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
-		[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-		[numberFormatter setLocale:p.priceLocale];
-		NSString* formattedPrice = [numberFormatter stringFromNumber:p.price];
-		
-		a.title = [NSString stringWithFormat:@"SIMULATED: Would you like to buy %d x '%@' at %@?", self.currentTransaction.payment.quantity, p.localizedTitle, formattedPrice];
-		[a addButtonWithTitle:@"Succeed Transaction"];
-		[a addButtonWithTitle:@"Fail Transaction"];
-		a.cancelButtonIndex = [a addButtonWithTitle:@"Cancel"];
-		[a show];
-	}
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
-{
-	switch (buttonIndex) {
-		case 0:
-			[self succeed];
-			break;
-		case 1:
-			[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimSKErrorUnknown userInfo:nil]];
-			break;
-		case 2:
-		default:
-			[self fail:[NSError errorWithDomain:kILSimSKErrorDomain code:kILSimSKErrorPaymentCancelled userInfo:nil]];
-			break;
+		[self.transactionSimulator simulateTransaction:self.currentTransaction product:p forQueue:self completionHandler:^(NSError* e) {
+			if (!e)
+				[self succeed];
+			else
+				[self fail:e];
+		}];
 	}
 }
 

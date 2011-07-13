@@ -14,6 +14,8 @@
 #import "ILSimSKPayment.h"
 #import "ILSimSKPaymentTransaction.h"
 
+@protocol ILSimTransactionSimulator;
+
 // ENVIRONMENT VARIABLES THAT CHANGE THIS CLASS'S BEHAVIOR:
 
 // if -boolValue == NO, the user cannot make payments.
@@ -58,6 +60,7 @@ enum {
 	NSMutableArray* transactions;
 	
 	ILSimSKPaymentTransaction* currentTransaction;
+	id <ILSimTransactionSimulator> transactionSimulator;
 }
 
 + (BOOL) canMakePayments;
@@ -73,6 +76,8 @@ enum {
 - (void) restoreCompletedTransactions;
 
 @property(nonatomic, readonly) NSArray* transactions;
+
+@property(nonatomic, assign) id <ILSimTransactionSimulator> transactionSimulator;
 
 @end
 

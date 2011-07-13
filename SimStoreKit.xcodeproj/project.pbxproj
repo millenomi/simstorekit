@@ -6,10 +6,48 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		1502A0E713CE227E00CC4FB4 /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1502A10113CE22BE00CC4FB4 /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				1502A0EB13CE228300CC4FB4 /* PBXTargetDependency */,
+				1502A0ED13CE228300CC4FB4 /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		1502A02A13CE163E00CC4FB4 /* ILSimTransactionSimulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1502A02813CE163E00CC4FB4 /* ILSimTransactionSimulator.h */; };
+		1502A02B13CE163E00CC4FB4 /* ILSimTransactionSimulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1502A02913CE163E00CC4FB4 /* ILSimTransactionSimulator.m */; };
+		1502A09213CE205A00CC4FB4 /* SimStoreKit_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* SimStoreKit_Prefix.pch */; };
+		1502A09313CE205A00CC4FB4 /* ILSimSKPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 155551D8111842630082EF0A /* ILSimSKPayment.h */; };
+		1502A09413CE205A00CC4FB4 /* ILSimSKProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = 155551EA111844230082EF0A /* ILSimSKProduct.h */; };
+		1502A09513CE205A00CC4FB4 /* ILSimSKRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 155551F0111844C50082EF0A /* ILSimSKRequest.h */; };
+		1502A09613CE205A00CC4FB4 /* ILSimSKProductsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 155551F4111845EE0082EF0A /* ILSimSKProductsRequest.h */; };
+		1502A09713CE205A00CC4FB4 /* ILSimSKPaymentTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 1555520D1118AA850082EF0A /* ILSimSKPaymentTransaction.h */; };
+		1502A09813CE205A00CC4FB4 /* ILSimSKPaymentTransaction_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 15A2B0381118B27400A39BCE /* ILSimSKPaymentTransaction_Private.h */; };
+		1502A09913CE205A00CC4FB4 /* ILSimSKPaymentQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 15A2B0681118B63600A39BCE /* ILSimSKPaymentQueue.h */; };
+		1502A09A13CE205A00CC4FB4 /* ILSimSKProduct_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 15A2B0BC1118C6B600A39BCE /* ILSimSKProduct_Private.h */; };
+		1502A09B13CE205A00CC4FB4 /* ILSimSKTiers.h in Headers */ = {isa = PBXBuildFile; fileRef = 15A2B0C01118C74800A39BCE /* ILSimSKTiers.h */; };
+		1502A09C13CE205A00CC4FB4 /* ILSimStoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 15491D2D1119C69B000CE8BB /* ILSimStoreKit.h */; };
+		1502A09D13CE205A00CC4FB4 /* ILSimTransactionSimulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1502A02813CE163E00CC4FB4 /* ILSimTransactionSimulator.h */; };
+		1502A09F13CE205A00CC4FB4 /* ILSimSKPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 155551D9111842630082EF0A /* ILSimSKPayment.m */; };
+		1502A0A013CE205A00CC4FB4 /* ILSimSKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 155551EB111844230082EF0A /* ILSimSKProduct.m */; };
+		1502A0A113CE205A00CC4FB4 /* ILSimSKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 155551F1111844C50082EF0A /* ILSimSKRequest.m */; };
+		1502A0A213CE205A00CC4FB4 /* ILSimSKProductsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 155551F5111845EE0082EF0A /* ILSimSKProductsRequest.m */; };
+		1502A0A313CE205A00CC4FB4 /* ILSimSKPaymentTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1555520E1118AA850082EF0A /* ILSimSKPaymentTransaction.m */; };
+		1502A0A413CE205A00CC4FB4 /* ILSimSKPaymentQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A2B0691118B63600A39BCE /* ILSimSKPaymentQueue.m */; };
+		1502A0A513CE205A00CC4FB4 /* ILSimSKTiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A2B0C11118C74800A39BCE /* ILSimSKTiers.m */; };
+		1502A0A613CE205A00CC4FB4 /* ILSimTransactionSimulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1502A02913CE163E00CC4FB4 /* ILSimTransactionSimulator.m */; };
+		1502A0A813CE205A00CC4FB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		15491D2E1119C69B000CE8BB /* ILSimStoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 15491D2D1119C69B000CE8BB /* ILSimStoreKit.h */; };
 		15491D501119C781000CE8BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15491D4F1119C781000CE8BB /* main.m */; };
-		15491D531119C79B000CE8BB /* libSimStoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libSimStoreKit.a */; };
+		15491D531119C79B000CE8BB /* libSimStoreKit-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libSimStoreKit-iOS.a */; };
 		15491D561119C7C7000CE8BB /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15491D551119C7C7000CE8BB /* MainWindow.xib */; };
 		15491D5E1119C7FB000CE8BB /* TestApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 15491D5D1119C7FB000CE8BB /* TestApp.m */; };
 		15491DEC1119CF60000CE8BB /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15491DEB1119CF60000CE8BB /* Products.plist */; };
@@ -34,6 +72,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1502A0EA13CE228300CC4FB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* SimStoreKit-iOS */;
+			remoteInfo = "SimStoreKit-iOS";
+		};
+		1502A0EC13CE228300CC4FB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1502A09013CE205A00CC4FB4 /* SimStoreKit-Mac */;
+			remoteInfo = "SimStoreKit-Mac";
+		};
 		15491D511119C792000CE8BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
@@ -44,6 +96,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1502A02813CE163E00CC4FB4 /* ILSimTransactionSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSimTransactionSimulator.h; sourceTree = "<group>"; };
+		1502A02913CE163E00CC4FB4 /* ILSimTransactionSimulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSimTransactionSimulator.m; sourceTree = "<group>"; };
+		1502A0AC13CE205A00CC4FB4 /* libSimStoreKit-Mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSimStoreKit-Mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15491D2D1119C69B000CE8BB /* ILSimStoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSimStoreKit.h; sourceTree = "<group>"; };
 		15491D341119C715000CE8BB /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15491D361119C715000CE8BB /* TestApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestApp-Info.plist"; sourceTree = "<group>"; };
@@ -70,15 +125,23 @@
 		15A2B0C11118C74800A39BCE /* ILSimSKTiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSimSKTiers.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* SimStoreKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimStoreKit_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D2AAC07E0554694100DB518D /* libSimStoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSimStoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2AAC07E0554694100DB518D /* libSimStoreKit-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSimStoreKit-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1502A0A713CE205A00CC4FB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1502A0A813CE205A00CC4FB4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15491D321119C715000CE8BB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15491D531119C79B000CE8BB /* libSimStoreKit.a in Frameworks */,
+				15491D531119C79B000CE8BB /* libSimStoreKit-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,8 +159,9 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libSimStoreKit.a */,
+				D2AAC07E0554694100DB518D /* libSimStoreKit-iOS.a */,
 				15491D341119C715000CE8BB /* TestApp.app */,
+				1502A0AC13CE205A00CC4FB4 /* libSimStoreKit-Mac.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +206,8 @@
 				15A2B0BC1118C6B600A39BCE /* ILSimSKProduct_Private.h */,
 				155551EB111844230082EF0A /* ILSimSKProduct.m */,
 				15491D2D1119C69B000CE8BB /* ILSimStoreKit.h */,
+				1502A02813CE163E00CC4FB4 /* ILSimTransactionSimulator.h */,
+				1502A02913CE163E00CC4FB4 /* ILSimTransactionSimulator.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -186,6 +252,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1502A09113CE205A00CC4FB4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1502A09213CE205A00CC4FB4 /* SimStoreKit_Prefix.pch in Headers */,
+				1502A09313CE205A00CC4FB4 /* ILSimSKPayment.h in Headers */,
+				1502A09413CE205A00CC4FB4 /* ILSimSKProduct.h in Headers */,
+				1502A09513CE205A00CC4FB4 /* ILSimSKRequest.h in Headers */,
+				1502A09613CE205A00CC4FB4 /* ILSimSKProductsRequest.h in Headers */,
+				1502A09713CE205A00CC4FB4 /* ILSimSKPaymentTransaction.h in Headers */,
+				1502A09813CE205A00CC4FB4 /* ILSimSKPaymentTransaction_Private.h in Headers */,
+				1502A09913CE205A00CC4FB4 /* ILSimSKPaymentQueue.h in Headers */,
+				1502A09A13CE205A00CC4FB4 /* ILSimSKProduct_Private.h in Headers */,
+				1502A09B13CE205A00CC4FB4 /* ILSimSKTiers.h in Headers */,
+				1502A09C13CE205A00CC4FB4 /* ILSimStoreKit.h in Headers */,
+				1502A09D13CE205A00CC4FB4 /* ILSimTransactionSimulator.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07A0554694100DB518D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -201,12 +286,30 @@
 				15A2B0BD1118C6B600A39BCE /* ILSimSKProduct_Private.h in Headers */,
 				15A2B0C21118C74800A39BCE /* ILSimSKTiers.h in Headers */,
 				15491D2E1119C69B000CE8BB /* ILSimStoreKit.h in Headers */,
+				1502A02A13CE163E00CC4FB4 /* ILSimTransactionSimulator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1502A09013CE205A00CC4FB4 /* SimStoreKit-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1502A0A913CE205A00CC4FB4 /* Build configuration list for PBXNativeTarget "SimStoreKit-Mac" */;
+			buildPhases = (
+				1502A09113CE205A00CC4FB4 /* Headers */,
+				1502A09E13CE205A00CC4FB4 /* Sources */,
+				1502A0A713CE205A00CC4FB4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SimStoreKit-Mac";
+			productName = SimStoreKit;
+			productReference = 1502A0AC13CE205A00CC4FB4 /* libSimStoreKit-Mac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		15491D331119C715000CE8BB /* TestApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15491D391119C716000CE8BB /* Build configuration list for PBXNativeTarget "TestApp" */;
@@ -225,9 +328,9 @@
 			productReference = 15491D341119C715000CE8BB /* TestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D2AAC07D0554694100DB518D /* SimStoreKit */ = {
+		D2AAC07D0554694100DB518D /* SimStoreKit-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SimStoreKit" */;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SimStoreKit-iOS" */;
 			buildPhases = (
 				D2AAC07A0554694100DB518D /* Headers */,
 				D2AAC07B0554694100DB518D /* Sources */,
@@ -237,9 +340,9 @@
 			);
 			dependencies = (
 			);
-			name = SimStoreKit;
+			name = "SimStoreKit-iOS";
 			productName = SimStoreKit;
-			productReference = D2AAC07E0554694100DB518D /* libSimStoreKit.a */;
+			productReference = D2AAC07E0554694100DB518D /* libSimStoreKit-iOS.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -249,14 +352,23 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SimStoreKit" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* SimStoreKit */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* SimStoreKit */,
+				D2AAC07D0554694100DB518D /* SimStoreKit-iOS */,
 				15491D331119C715000CE8BB /* TestApp */,
+				1502A09013CE205A00CC4FB4 /* SimStoreKit-Mac */,
+				1502A0E713CE227E00CC4FB4 /* All */,
 			);
 		};
 /* End PBXProject section */
@@ -274,6 +386,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1502A09E13CE205A00CC4FB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1502A09F13CE205A00CC4FB4 /* ILSimSKPayment.m in Sources */,
+				1502A0A013CE205A00CC4FB4 /* ILSimSKProduct.m in Sources */,
+				1502A0A113CE205A00CC4FB4 /* ILSimSKRequest.m in Sources */,
+				1502A0A213CE205A00CC4FB4 /* ILSimSKProductsRequest.m in Sources */,
+				1502A0A313CE205A00CC4FB4 /* ILSimSKPaymentTransaction.m in Sources */,
+				1502A0A413CE205A00CC4FB4 /* ILSimSKPaymentQueue.m in Sources */,
+				1502A0A513CE205A00CC4FB4 /* ILSimSKTiers.m in Sources */,
+				1502A0A613CE205A00CC4FB4 /* ILSimTransactionSimulator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15491D311119C715000CE8BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,20 +421,90 @@
 				155552101118AA850082EF0A /* ILSimSKPaymentTransaction.m in Sources */,
 				15A2B06B1118B63600A39BCE /* ILSimSKPaymentQueue.m in Sources */,
 				15A2B0C31118C74800A39BCE /* ILSimSKTiers.m in Sources */,
+				1502A02B13CE163E00CC4FB4 /* ILSimTransactionSimulator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1502A0EB13CE228300CC4FB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* SimStoreKit-iOS */;
+			targetProxy = 1502A0EA13CE228300CC4FB4 /* PBXContainerItemProxy */;
+		};
+		1502A0ED13CE228300CC4FB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1502A09013CE205A00CC4FB4 /* SimStoreKit-Mac */;
+			targetProxy = 1502A0EC13CE228300CC4FB4 /* PBXContainerItemProxy */;
+		};
 		15491D521119C792000CE8BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D2AAC07D0554694100DB518D /* SimStoreKit */;
+			target = D2AAC07D0554694100DB518D /* SimStoreKit-iOS */;
 			targetProxy = 15491D511119C792000CE8BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1502A0AA13CE205A00CC4FB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/SimStoreKit.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SimStoreKit_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "kILSimAllowSimulatedStoreKit=1";
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = "SimStoreKit-Mac";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1502A0AB13CE205A00CC4FB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				DSTROOT = /tmp/SimStoreKit.dst;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SimStoreKit_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "kILSimAllowSimulatedStoreKit=1";
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = "SimStoreKit-Mac";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1502A0E813CE227E00CC4FB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		1502A0E913CE227E00CC4FB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = All;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		15491D371119C716000CE8BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -328,7 +525,6 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = TestApp;
-				SDKROOT = iphoneos3.1.3;
 			};
 			name = Debug;
 		};
@@ -352,7 +548,6 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = TestApp;
-				SDKROOT = iphoneos3.1.3;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -370,8 +565,9 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SimStoreKit_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "kILSimAllowSimulatedStoreKit=1";
 				INSTALL_PATH = /usr/local/lib;
-				PRODUCT_NAME = SimStoreKit;
+				PRODUCT_NAME = "SimStoreKit-iOS";
 			};
 			name = Debug;
 		};
@@ -384,8 +580,9 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SimStoreKit_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "kILSimAllowSimulatedStoreKit=1";
 				INSTALL_PATH = /usr/local/lib;
-				PRODUCT_NAME = SimStoreKit;
+				PRODUCT_NAME = "SimStoreKit-iOS";
 			};
 			name = Release;
 		};
@@ -399,7 +596,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -412,13 +609,31 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1502A0A913CE205A00CC4FB4 /* Build configuration list for PBXNativeTarget "SimStoreKit-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1502A0AA13CE205A00CC4FB4 /* Debug */,
+				1502A0AB13CE205A00CC4FB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1502A10113CE22BE00CC4FB4 /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1502A0E813CE227E00CC4FB4 /* Debug */,
+				1502A0E913CE227E00CC4FB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		15491D391119C716000CE8BB /* Build configuration list for PBXNativeTarget "TestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -428,7 +643,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SimStoreKit" */ = {
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SimStoreKit-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,
