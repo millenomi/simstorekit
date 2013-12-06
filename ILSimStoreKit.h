@@ -1,4 +1,3 @@
-
 #if !defined(kILSimAllowSimulatedStoreKit) && TARGET_IPHONE_SIMULATOR
 #define kILSimAllowSimulatedStoreKit 1
 #endif
@@ -21,6 +20,7 @@
 		#define SKRequest ILSimSKRequest
 		#define SKProduct ILSimSKProduct
 		#define SKPayment ILSimSKPayment
+		#define SKMutablePayment ILSimSKMutablePayment
 		#define SKProductsRequestDelegate ILSimSKProductsRequestDelegate
 		#define SKPaymentTransactionObserver ILSimSKPaymentTransactionObserver
 		#define SKRequestDelegate ILSimSKRequestDelegate
